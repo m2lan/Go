@@ -90,6 +90,14 @@ func main() {
 	 myFunc_for()
 
 	 fmt.Println("----------------------------------------------------")
+
+	 myFunc_for1()
+
+	 fmt.Println("----------------------------------------------------")
+
+	 myFunc_for2()
+
+	 fmt.Println("----------------------------------------------------")
 }
 
 func myFunc_goto() {
@@ -112,4 +120,26 @@ func myFunc_for() {
 	}
 
 	println(sum)
+}
+
+func myFunc_for1() {
+	for i := 0; i < 10; i++ {
+		if i > 5 {
+			continue
+		}
+		fmt.Printf("%d, ", i)
+	}
+	println()
+}
+
+func myFunc_for2() {
+	J: for i := 0; i < 10; i++ {
+		for j := 0; j < 5; j++ {
+			if j > 5 {
+				break J
+			}
+
+			println(i)
+		}
+	}
 }
