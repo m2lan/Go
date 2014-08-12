@@ -3,6 +3,7 @@ package main
 import "fmt"
 
 func main() {
+	
 	if myFunc_switch('a') {
 		println("aaaa")
 	} else {
