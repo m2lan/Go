@@ -139,7 +139,7 @@ func myFunc_for2() {
 				break J
 			}
 
-			println(i)
+			println(j)
 		}
 	}
 }
