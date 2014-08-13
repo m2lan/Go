@@ -61,4 +61,21 @@ func main() {
 		fmt.Println(days)
 	}
 	fmt.Println("一年共有:", year, "天")
+
+	// 向map中添加元素
+	mymap["kkkk"] = 33
+	println(mymap["kkkk"])
+
+	// 删除map中某个元素
+	delete(mymap, "kkkk")
+
+	// 判断kkkk是否存在
+	_, ok := mymap["kkkk"]
+
+	if ok {
+		println("有值")
+	} else {
+		println("无值")
+	}
+
 }
