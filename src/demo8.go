@@ -1,10 +1,9 @@
 package main
 
-<<<<<<< HEAD
 import (
 	"github.com/hoisie/web"
+	"fmt"
 )
-
 func welcome(ctx *web.Context, val string) {
 	for k, v := range ctx.Params {
 		println(k, v)
@@ -14,11 +13,6 @@ func welcome(ctx *web.Context, val string) {
 func main() {
 	web.Get("/(.*)", welcome)
 	web.Run("0.0.0.0:9999")
-=======
-import "fmt"
-
-func main() {
-
 LABEL1:
 	for {
 		for i := 0; i < 10; i++ {
@@ -68,5 +62,4 @@ LABEL1:
 		m2[v] = k
 	}
 	fmt.Println(m2)
->>>>>>> 18255b2cbf6d68e0fe4d0fe56b2c062bb3bc5b30
 }

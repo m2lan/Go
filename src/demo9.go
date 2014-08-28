@@ -1,13 +1,5 @@
 package main
 
-<<<<<<< HEAD
-import (
-	"fmt"
-)
-
-func main() {
-	fmt.Println("demo9")
-=======
 import "fmt"
 
 func main() {
@@ -27,5 +19,4 @@ func test(a int) func(int) func(int) int {
 
 func test1(a ...int) {
 	fmt.Println(a)
->>>>>>> 18255b2cbf6d68e0fe4d0fe56b2c062bb3bc5b30
 }
