@@ -22,3 +22,4 @@ _testmain.go
 *.exe
 *.test
 src/github.com
+bin
