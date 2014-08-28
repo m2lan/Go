@@ -1,9 +1,18 @@
 package main
 
-import "fmt"
+import (
+	"github.com/hoisie/web"
+	"fmt"
+)
+func welcome(ctx *web.Context, val string) {
+	for k, v := range ctx.Params {
+		println(k, v)
+	}
+}
 
 func main() {
-
+	web.Get("/(.*)", welcome)
+	web.Run("0.0.0.0:9999")
 LABEL1:
 	for {
 		for i := 0; i < 10; i++ {
