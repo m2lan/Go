@@ -14,6 +14,6 @@ func init() {
 func main() {
 	// 自动创建表
 	orm.RunSyncdb("default", false, true)
-
 	beego.Run()
+
 }
