@@ -75,6 +75,20 @@
 			    	Contact me: {{.Email}}
 			    </p>
 			  </div>
+
+			  <div>
+			  	{{with .User}}
+			  		{{.Name}} ---- {{.Age}}
+			  	{{end}}
+			  </div>
+
+			  <div>
+			  	{{range .Array}}
+			  		<ul>
+			  			<li>{{.}}</li>
+			  		</ul>
+			  	{{end}}
+			  </div>
 			</div>
 			</div>
 		</header>
