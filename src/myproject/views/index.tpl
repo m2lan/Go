@@ -75,6 +75,7 @@
 			    	Contact me: {{.Email}}
 			    </p>
 			  </div>
+<<<<<<< HEAD
 			  <div>
 			  	{{$cot:=.Email | len}}
 			  	{{if (.Email | len) gt 10}}
@@ -83,6 +84,8 @@
 			  	yyyy
 			  	{{end}}
 			  </div>
+=======
+>>>>>>> 11e05332a743e61629d966e998bc9ee56732bdf7
 			</div>
 			</div>
 		</header>
