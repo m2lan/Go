@@ -1,0 +1,27 @@
+{{template "public/T.header.html"}}
+<title>首页</title>
+</head>
+
+<body>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            {{template "public/T.navbar.html" .}}
+        </div>
+    </div>
+    <div class="container">
+        {{range .Topics}}
+        <div class="page-header">
+            <h3><a href="/topic/view/{{.Id}}">{{.Title}}</a>
+            </h3>
+            <h6 class="text-muted">文章发表于 {{.Created}}，共有 {{.Views}} 次浏览， {{.ReplyCount}} 个评论</h6>
+            <p>
+		{{if (.Content | len) gt 30}}
+                	{{substr (html2str .Content) 0 30}}......
+		{{else}}
+			{{html2str .Content}}
+		{{end}}
+            </p>
+        </div>
+        {{end}}
+    </div>
+    {{template "public/T.footer.html"}}
