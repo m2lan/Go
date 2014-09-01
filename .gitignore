@@ -21,5 +21,7 @@ _testmain.go
 
 *.exe
 *.test
+
 src/github.com
+src/code.google.com
 bin
