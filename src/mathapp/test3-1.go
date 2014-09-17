@@ -4,6 +4,8 @@ import (
 	"fmt"
 )
 
+/* struct做为匿名字段 */
+
 type Human struct {
 	name   string
 	age    int
