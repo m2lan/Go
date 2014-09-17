@@ -7,17 +7,90 @@
         </li>
         <li {{if .IsTopic}}class="active" {{end}}><a href="/topic">文章</a>
         </li>
+        <li {{if .IsAbout}}class="active" {{end}}><a href="/about">关于</a>
+        </li>
     </ul>
 </div>
 
 <div class="pull-right">
-    <ul class="nav navbar-nav">
-        {{if .IsLogin}}
-        <li><a href="/login?exit=true">退出登录</a>
-        </li>
-        {{else}}
-        <li><a href="/login">管理员登录</a>
-        </li>
-        {{end}}
-    </ul>
+    <div class="login fr">
+        <div class="loginmenu">
+            <a title="登录或注册"></a>
+        </div>
+        <ul>
+            <li class="openlogin"><a href="#" onclick="return false;">登录</a>
+            </li>
+            <li class="reg"><a href="#" onclick="return false;">注册</a>
+            </li>
+        </ul>
+    </div>
+    <div class="clear"></div>
+    <div class="loginmask"></div>
+    <div id="loginalert">
+        <div class="pd20 loginpd">
+            <h3><i class="closealert fr"></i>
+                <div class="clear"></div>
+            </h3>
+            <div class="loginwrap">
+                <div class="loginh">
+                    <div class="fl">会员登录</div>
+                    <div class="fr">还没有账号<a id="sigup_now" href="#" onclick="return false;">立即注册</a>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <h3>
+                    <span class="login_warning">用户名或密码错误</span>
+                    <div class="clear"></div>
+                </h3>
+                <div class="clear"></div>
+                <form action="" method="post" id="login_form">
+                    <div class="logininput">
+                        <input type="text" name="username" class="loginusername" value="邮箱/用户名" />
+                        <input type="text" class="loginuserpasswordt" value="密码" />
+                        <input type="password" name="password" class="loginuserpasswordp" style="display:none" />
+                    </div>
+                    <div class="loginbtn">
+                        <div class="loginsubmit fl">
+                            <input type="submit" value="登录" />
+                            <div class="loginsubmiting">
+                                <div class="loginsubmiting_inner"></div>
+                            </div>
+                        </div>
+                        <div class="logcheckbox fl">
+                            <input id="bcdl" type="checkbox" checked="true" />保持登录
+                        </div>
+                        <div class="fr"><a href="#">忘记密码?</a>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="thirdlogin">
+            <div class="pd50">
+                <h4>用第三方帐号直接登录</h4>
+                <ul>
+                    <li id="sinal"><a href="#">微博账号登录</a>
+                    </li>
+                    <li id="qql"><a href="#">QQ账号登录</a>
+                    </li>
+                    <div class="clear"></div>
+                </ul>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    <!-- <div id="reg_setp">
+        <div class="back_setp">返回</div>
+        <div class="blogo"></div>
+        <div id="setp_quicklogin">
+            <h3>您可以选择以下第三方帐号直接登录站长素材，一分钟完成注册</h3>
+            <ul class="quicklogin_socical">
+                <li class="quicklogin_socical_weibo"><a href="#">微博帐号注册</a>
+                </li>
+                <li class="quicklogin_socical_qq"><a href="#">QQ帐号注册</a>
+                </li>
+            </ul>
+        </div>
+    </div> -->
 </div>

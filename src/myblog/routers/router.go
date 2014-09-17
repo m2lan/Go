@@ -11,6 +11,7 @@ func init() {
 	beego.Router("/", &controllers.MainController{})
 	beego.Router("/topic", &controllers.TopicController{})
 	beego.AutoRouter(&controllers.TopicController{})
+	beego.Router("/about", &controllers.AboutController{})
 	langs := strings.Split(beego.AppConfig.String("types"), "|")
 
 	for _, lang := range langs {
