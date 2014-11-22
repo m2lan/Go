@@ -1,0 +1,126 @@
+fieldset,img {border: 0;}
+address,caption,cite,code,dfn,em,th,var,optgroup {font-style: normal;font-weight: normal;}
+ins {text-decoration: none;}
+li {list-style: none;}
+table {font-size:inherit;font:100%;}
+caption,th {text-align: left;}
+q:before,q:after {content:'';}
+abbr,acronym {border: 0;font-variant: normal;}
+legend {color: #000;}
+input,button,textarea,select,optgroup,option {font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;}
+input,button,textarea,select {margin:0;*font-size: 100%;line-height:1.2;}
+a img,img {-ms-interpolation-mode:bicubic;}
+.cls:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+.cls{zoom:1;}
+article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary { display:block;}
+/*reset文件结束 */
+body{background:#fff;font-size:14px;font-family:arial,verdana,sans-serif;color:#333;}
+.clear{clear:both;line-height:0px;height:0px;overflow:hidden;}
+a{text-decoration:none;color:#666;outline: none;}
+a:hover{text-decoration:underline;}
+.gray{color:#666}
+.red{color:#cc0000}
+.bold{font-weight:bold;}
+.middleline{text-decoration:line-through;}
+/*thre*/
+.s-index-org{color:#FF4E00;}
+.s-index-icon,.s-index-star span{display:block;background-image:url(http://m.baidu.com/static/as/images/s-index-icon-3.png?ver=201208010);overflow:hidden;text-indent:-1000em;}
+.s-index-content{}
+.main-content{float:left;width:752px;}
+.part{border:1px solid #d8d8d8;padding-bottom:5px;margin-top:10px;}
+.part .title{height:43px;background-color:#f5f5f5;position:relative;}
+.part .title h3{height:40px;line-height:40px;color:#000;border-bottom:1px solid #d8d8d8;padding-left:40px;}
+.part .title .s-index-icon{position:absolute;width:20px;height:18px;top:11px;left:15px;}
+.part .title .more{position:absolute;right:10px;top:12px;color:#333;font-family:"宋体",arial,verdana,sans-serif}
+.part .title .hot-icon{background-position:-137px 0px;*top:10px;}
+.part .title .op-page{position:absolute;top:0px;right:0px;width:120px;font-size:16px;font-weight:bold}
+.part .title .op-page li{float:left;width:39px;border-left:1px solid #d8d8d8;height:40px;line-height:40px;text-align:center;cursor:pointer;}
+.part .title .op-page li.select{color:#fff;padding-left:1px;width:38px;background:#FF4E00 url(http://m.baidu.com/static/as/images/s-index-icon-1.png?ver=20120730) no-repeat -291px -47px;}
+.part .title .op-page li.select span{display:block;height:40px;background:url(http://m.baidu.com/static/as/images/s-index-icon-1.png?ver=20120730) no-repeat right -47px;}
+.app-list{font-size:12px;padding-left:10px;}
+.app-list li{float:left;width:104px;height:124px;padding-top:14px;text-align:center;z-index:1;overflow:hidden;}
+.app-list li a:hover{color:#ff4e00;}
+.app-list li .normal-wrap{margin:0px 10px;height:124px;}
+.app-list li .normal-wrap .down-num{color:#888;}
+.app-list li .normal-wrap .rank-down-num{color:#999;}
+.app-list li .pic{display:block;width:68px;height:68px;overflow:hidden;margin:0px auto;cursor:pointer;}
+.app-list li .pic img{width:68px;height:68px;display:block;}
+.app-list li h4{color:#555;height:24px;line-height:24px;margin:5px auto 0px auto;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.app-list li h4 a{color:#555}
+.app-info-pannel{display:none;position:absolute;z-index:3;width:200px;height:114px;top:14px;left:74px;text-align:left;padding:10px 0px 0px 28px;background:url(http://m.baidu.com/static/as/images/li-pannel.png);_background:none;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://m.baidu.com/static/as/images/li-pannel.png' ,sizingMethod='crop');}
+.app-list li .app-info-pannel h4{font-size:14px;color:#333;height:26px;margin-top:0px;}
+.app-info-pannel .detail{padding:8px 25px 0px 0px;height:56px;overflow:hidden;line-height:1.5em;color:#797979;word-wrap:break-word;word-break:break-all;}
+.app-info-pannel .score{position:absolute;top:12px;right:18px;font-style:italic;font-weight:bold;}
+.app-info-pannel .score .num{font-size:24px;color:#FF4E00;}
+.app-info-pannel .score .num em{font-size:30px;font-style:italic;font-weight:bold;}
+.app-list li.hover .app-info-pannel{display:block;}
+.app-list li .download{display:none;}
+.app-list li.hover .download,.s-index-down{display:block;text-align:center;font-size:12px;margin:0px auto;text-indent:0px;width:60px;height:25px;line-height:25px;color:#fff;text-decoration:none;background-position:-228px -47px;background-color:#FF4E00;}
+.app-list li.hover .download:hover,.s-index-down:hover{background-position:-228px -74px;text-decoration:none;}
+.app-list li.hover .download:hover{color:#fff}
+.app-list li.hover .down-num{display:none;}
+.app-list li.hover .rank-down-num{display:none;}
+.s-index-star{height:15px;_margin-top:-2px;font-size:0px;line-height:0px;}
+.s-index-star span{display:inline-block;margin-top:0px;width:13px;height:13px;overflow:hidden;background-position:-181px -22px;text-indent:0px;}
+.s-index-star-0 .one,.s-index-star-0 .two,.s-index-star-0 .three,.s-index-star-0 .four,.s-index-star-0 .five{background-position:-211px -22px;}
+.s-index-star-1 .two,.s-index-star-1 .three,.s-index-star-1 .four,.s-index-star-1 .five{background-position:-211px -22px;}
+.s-index-star-2 .two,.s-index-star-2 .three,.s-index-star-2 .four,.s-index-star-2 .five{background-position:-211px -22px;}
+.s-index-star-3 .three,.s-index-star-3 .four,.s-index-star-3 .five{background-position:-211px -22px;}
+.s-index-star-4 .three,.s-index-star-4 .four,.s-index-star-4 .five,.s-index-star-5 .four,.s-index-star-5 .five{background-position:-211px -22px;}
+.s-index-star-6 .four,.s-index-star-6 .five,.s-index-star-7 .five,.s-index-star-8 .five{background-position:-211px -22px;}
+.s-index-star-1 .one,.s-index-star-3 .two,.s-index-star-5 .three,.s-index-star-7 .four,.s-index-star-9 .five{background-position:-196px -22px;}
+.s-index-side{width:220px;}
+.s-index-side .part{padding:0px;}
+.s-index-side .part .title{height:41px;}
+.s-index-side .part .title .s-index-icon{left:10px;}
+.s-index-side .part .title h3{padding-left:32px;font-size:14px;}
+.s-index-side .part .game-icon{background-position:-155px 0px;}
+.s-index-side .part .rank-game-icon{background-position:-228px -302px;}
+.s-index-side .part .rank-soft-icon{background-position:-250px -302px;}
+.s-index-side .types{width:218px;overflow:hidden;border-bottom:none;position:relative}
+.s-index-side .types .title h3{padding-left:0px;text-align:center;}
+.s-index-side .types .title .s-index-icon{top:13px;left:58px;}
+.s-index-side .types-list{margin:0px -5px 0px 0px;}
+.s-index-side .types-list li{width:109px;height:44px;position:relative;border-right:1px solid #d8d8d8;overflow:hidden;line-height:44px;text-align:center;float:left;border-bottom:1px solid #d8d8d8;background-color:#f5f5f5;}
+.s-index-side .types-list li a{display:block;color:#333;height:44px;line-height:44px;border-left: 1px solid #fff;border-top: 1px solid #fff;}
+.s-index-side .types-list li a:hover{color:#ff4e00}
+.s-index-side .types-list li.select{background:#FF4E00 url(http://m.baidu.com/static/as/images/s-index-icon-1.png?ver=20120730) no-repeat -235px 0px;}
+.s-index-side .types-list li.select a{margin-left:2px;color:#fff;border:none;background:url(http://m.baidu.com/static/as/images/s-index-icon-1.png?ver=20120730) no-repeat right 0px;font-weight:bold;cursor:default;}
+.s-index-side .types-list li.select a:hover{text-decoration:none;color:#fff;}
+.s-index-side .types-list li .s-index-icon{display:none;}
+.s-index-side .types-list li.select .s-index-icon{position:absolute;display:block;width:6px;height:8px;top:19px;left:11px;background-position: -72px -59px;}
+.s-index-side .types-list li.left,.s-index-side .types-list li:nth-child(odd){border-right: 1px solid #d8d8d8;width:108px;}
+.s-index-side .types-list li.left a{border-left-color:#f5f5f5;}
+.s-index-side .weekly{margin-top:10px;font-size:12px;zoom:1;}
+.s-index-side .app-show-block{padding:2px 0px 0px 80px;position:relative;height:78px;text-align:left;}
+.s-index-side .app-show-block h4{height:24px;line-height: 24px;font-size:14px;}
+.s-index-side .app-show-block h4 span{font-weight: bold;}
+.s-index-side .app-show-block h4 a{color:#555}
+.s-index-side .app-show-block h4 a:hover{color:#FF4E00}
+.s-index-side .app-show-block .s-index-down{margin:0px;margin-top:7px;font-weight:normal;background-color:#FF4E00}
+.s-index-side .app-show-block .pic{position:absolute;top:4px;left:0px;cursor:pointer;}
+.s-index-side .app-show-block img{display:block;width:68px;height: 68px;}
+.s-index-side .weekly .app-show-block{margin:0px 0px 0px 12px;padding-left:65px;height:60px;}
+.s-index-side .weekly .app-show-block a{height:25px;}
+.s-index-side .weekly .app-show-block .pic{position:absolute;top:0px;left:0px;}
+.s-index-side .weekly .app-show-block img{display:block;height:52px;width:52px;}
+.s-index-side .part .weekly-icon{background-position: -193px 0px;}
+.s-index-side .weekly-list{padding:0px 10px 2px 10px;margin-top:-1px;position: relative;}
+.s-index-side .weekly-list li{height:39px;line-height:39px;border-top:1px dotted #d8d8d8;overflow:hidden;*position:relative;zoom:1;}
+.s-index-side .weekly-list .app-show-title{padding-left:10px;}
+.s-index-side .weekly-list li .num{font-size:12px;height:40px;line-height:40px;padding-right:10px;font-weight:bold;}
+.s-index-side .weekly-list li a{}
+.s-index-side .weekly-list li.current a{font-weight:bold;}
+.s-index-side .weekly-list li.current .app-show-title a:hover{color:#ff4e00;}
+.s-index-side .weekly-list li.current .s-index-down{font-weight:normal;}
+.s-index-side .s-index-ad img{height:193px;width: 220px;}
+.s-index-side .we-down{margin-top:10px;padding-bottom:8px;}
+.s-index-side .we-down-icon{background-position: -138px -19px;}
+.s-index-side .we-down .title h3{padding-left:36px;}
+.s-index-side .tip-info{color:#969696;font-size:12px;}
+.s-index-side .we-down-list{padding:0px 12px;height:230px;overflow-y:hidden;position:relative;}
+.s-index-side .we-down-list li{padding:8px 0px 5px 0px;border-bottom:1px dotted #d8d8d8;}
+.s-index-side .we-down  .app-show-block{margin-top:8px;}
+.s-index-side .part .title .game-top10-icon{background-position:-140px -54px}
+.s-index-side .part .title .soft-top10-icon{background-position:-165px -54px}
+.s-index-side .part .title .soft-must-icon{background-position:-182px -54px}

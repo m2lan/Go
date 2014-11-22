@@ -1,0 +1,16 @@
+2014/08/29 00:15:54 [[94mINFO[0m] Uses 'myproject' as 'appname'
+2014/08/29 00:15:54 [[94mINFO[0m] Initializing watcher...
+2014/08/29 00:15:54 [[94mTRAC[0m] Directory([93m/root/Example/Go/src/myproject/controllers[0m)
+2014/08/29 00:15:54 [[94mTRAC[0m] Directory([93m/root/Example/Go/src/myproject[0m)
+2014/08/29 00:15:54 [[94mTRAC[0m] Directory([93m/root/Example/Go/src/myproject/routers[0m)
+2014/08/29 00:15:54 [[94mTRAC[0m] Directory([93m/root/Example/Go/src/myproject/tests[0m)
+2014/08/29 00:15:54 [[94mINFO[0m] Start building...
+2014/08/29 00:16:01 [[92mSUCC[0m] Build was successful
+2014/08/29 00:16:01 [[94mINFO[0m] Restarting myproject ...
+2014/08/29 00:16:01 [[94mINFO[0m] ./myproject is running...
+2014/08/29 00:16:01 [1;34m[I] Running on :3000[0m
+2014/08/29 00:16:02 [1;34m[D] | GET        | /                                        | 2.585984ms       | match      | /                                        | [0m
+2014/08/29 00:16:05 [1;34m[D] | GET        | /                                        | 1.299887ms       | match      | /                                        | [0m
+2014/08/29 00:16:07 [1;34m[D] | GET        | /                                        | 1.416558ms       | match      | /                                        | [0m
+2014/08/29 00:16:08 [1;34m[D] | GET        | /                                        | 1.328936ms       | match      | /                                        | [0m
+2014/08/29 00:16:10 [1;34m[D] | GET        | /                                        | 1.384636ms       | match      | /                                        | [0m
