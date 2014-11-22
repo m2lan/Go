@@ -1,0 +1,78 @@
+{{template "public/T.header.html"}}
+</head>
+
+<body>
+    {{template "public/T.navbar.html" .}}
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-8">
+                {{range .Topics}}
+                <div class="page-header" style="margin:0">
+                    <h3><a href="/topic/view/{{.Id}}">{{.Title}}</a>
+                    </h3>
+                    <h6 class="text-muted">文章发表于 {{.Created}}，共有 {{.Views}} 次浏览， {{.ReplyCount}} 个评论</h6>
+                    <p>
+                        {{if (.Content | len) gt 30}} {{substr (html2str .Content) 0 30}}...... {{else}} {{html2str .Content}} {{end}}
+                    </p>
+                </div>
+                {{end}}
+                <nav>
+                    <ul class="pagination">
+                        <li><a href="#">&laquo;</a>
+                        </li>
+                        <li><a href="#">1</a>
+                        </li>
+                        <li><a href="#">2</a>
+                        </li>
+                        <li><a href="#">3</a>
+                        </li>
+                        <li><a href="#">4</a>
+                        </li>
+                        <li><a href="#">5</a>
+                        </li>
+                        <li><a href="#">&raquo;</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-xs-6 col-md-4" id="myaffix">
+                <div class="list-group">
+                    <a href="#" class="list-group-item active">
+    Cras justo odio
+  </a>
+                    <a href="#" class="list-group-item"><span class="badge">14</span>Javascript</a>
+                    <a href="#" class="list-group-item"><span class="badge">14</span>Java</a>
+                    <a href="#" class="list-group-item"><span class="badge">14</span>NodeJS</a>
+                    <a href="#" class="list-group-item"><span class="badge">14</span>PHP</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    {{template "public/T.footer.html"}}
+    <script>
+        $(function () {
+            $("#backtotop").hide();
+            $(function () {
+                $(window).scroll(function () {
+                    if ($(window).scrollTop() > 100) {
+                        $("#backtotop").fadeIn();
+                    } else {
+                        $("#backtotop").fadeOut();
+                    }
+                });
+                $("#backtotop").click(function () {
+                    $('body,html').animate({
+                        scrollTop: 0
+                    }, 500);
+                    return false;
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

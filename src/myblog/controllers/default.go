@@ -17,7 +17,7 @@ func (this *MainController) Prepare() {
 func (this *MainController) Get() {
 	fmt.Println("get")
 	this.Data["IsHome"] = true
-	this.TplNames = "index.html"
+	this.TplNames = "index-test.html"
 
 	topics, err := models.GetAllTopic(true)
 	if err != nil {
