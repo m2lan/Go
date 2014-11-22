@@ -1,0 +1,50 @@
+{{template "public/T.header.html"}}
+<link rel="stylesheet" href="/static/css/zzsc.css" />
+<title>首页{{i18n .Lang "hello"}}</title>
+</head>
+
+<body>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            {{template "public/T.navbar.html" .}}
+        </div>
+    </div>
+    <div class="container">
+        <div class="row row-offcanvas row-offcanvas-right">
+            <div class="col-xs-12 col-sm-9">
+                {{range .Topics}}
+                <div class="page-header">
+                    <h3><a href="/topic/view/{{.Id}}">{{.Title}}</a>
+                    </h3>
+                    <h6 class="text-muted">文章发表于 {{.Created}}，共有 {{.Views}} 次浏览， {{.ReplyCount}} 个评论</h6>
+                    <p>
+                        {{if (.Content | len) gt 30}} {{substr (html2str .Content) 0 30}}...... {{else}} {{html2str .Content}} {{end}}
+                    </p>
+                </div>
+                {{end}}
+            </div>
+            <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+                <div class="list-group">
+                    <div style="margin:20px auto; width:250px;">
+                        <div class="s-index-side">
+                            <div class="part weekly game-top10 cls">
+                                <div class="title">
+                                    <h3>文章Top10</h3>
+                                </div>
+                                <ul class="weekly-list cls">
+                                    {{range $key, $value := .Topics}}
+                                    <li>
+                                        <div class="app-show-title">
+                                            <span class="num">{{$key}}.</span>
+                                            <a href="/topic/view/{{.Id}}">{{.Title}}</a>
+                                        </div>
+                                    </li>
+                                    {{end}}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{template "public/T.footer.html"}}

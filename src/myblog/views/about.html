@@ -1,0 +1,50 @@
+{{template "public/T.header.html"}}
+<title>关于</title>
+<link rel="stylesheet" href="/static/css/history.css">
+</head>
+
+<body>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            {{template "public/T.navbar.html" .}}
+        </div>
+    </div>
+
+    <div class="head-warp">
+      <div class="head">
+            <div class="nav-box">
+              <ul>
+                  <li class="cur" style="text-align:center; font-size:62px; font-family:'微软雅黑', '宋体';"></li>
+              </ul>
+            </div>
+      </div>
+    </div>
+    <div class="main">
+        <div class="history">
+            <div class="history-date">
+                <ul>
+                    <h2 class="first"><a href="#nogo">2014年</a>
+                    </h2>
+
+                    {{range .List}}
+
+                    <li class="green">
+                        <h3>{{.Day}}
+                            <span>{{.Year}}</span>
+                        </h3>
+                        <dl>
+                            <dt>{{.Title}}
+                                <span>{{.Detail}}</span>
+                            </dt>
+                        </dl>
+                    </li>
+                    {{end}}
+                </ul>
+            </div>
+        </div>
+    </div>
+{{template "public/T.footer.html"}}
+<script type="text/javascript" src="/static/js/main.js"></script>
+</body>
+
+</html>

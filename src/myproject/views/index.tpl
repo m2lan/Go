@@ -66,13 +66,31 @@
 			<div class="container">
 			<div class="row">
 			  <div class="hero-text">
-			    <h1>Welcome to Blog!</h1>
+			    <h1>Welcome to Beego!</h1>
 			    <p class="description">
+			    	Beego is a simple & powerful Go web framework which is inspired by tornado and sinatra.
 			    <br />
 			    	Official website: <a href="http://{{.Website}}">{{.Website}}</a>
 			    <br />
 			    	Contact me: {{.Email}}
 			    </p>
+			  </div>
+			  <div>
+			  	{{with .User}}
+			  		{{.Name}} ---- {{.Age}}
+			  	{{end}}
+			  </div>
+
+			  <div>
+			  	{{range .Array}}
+			  		<ul>
+			  			<li>{{.}}</li>
+			  		</ul>
+			  	{{if (.Email | len) gt 10}}
+			  	xxxx
+			  	{{else}}
+			  	yyyy
+			  	{{end}}
 			  </div>
 			</div>
 			</div>

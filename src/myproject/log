@@ -11,6 +11,29 @@
 2014/08/29 00:16:01 [1;34m[I] Running on :3000[0m
 2014/08/29 00:16:02 [1;34m[D] | GET        | /                                        | 2.585984ms       | match      | /                                        | [0m
 2014/08/29 00:16:05 [1;34m[D] | GET        | /                                        | 1.299887ms       | match      | /                                        | [0m
-2014/08/29 00:16:07 [1;34m[D] | GET        | /                                        | 1.416558ms       | match      | /                                        | [0m
-2014/08/29 00:16:08 [1;34m[D] | GET        | /                                        | 1.328936ms       | match      | /                                        | [0m
-2014/08/29 00:16:10 [1;34m[D] | GET        | /                                        | 1.384636ms       | match      | /                                        | [0m
+2014/08/29 00:16:07 [1;34m[D] | GET        | /                                        | 1.416558ms       | match      | /                        2014/11/23 03:03:26 [EVEN] "/root/Example/Go/src/myproject/controllers/HomeController.go": CREATE
+2014/11/23 03:03:26 [[94mINFO[0m] Start building...
+2014/11/23 03:03:28 [[91mERRO[0m] Fail to open file[[91mopen /root/Example/Go/src/myproject/main.go: no such file or directory[0m]
+2014/11/23 03:03:28 [EVEN] "/root/Example/Go/src/myproject/main.go": DELE2014/11/23 03:03:31 [[91mERRO[0m] ============== Build failed ===================
+2014/11/23 03:03:31 [[94mINFO[0m] Start building...
+2012014/11/23 03:03:31 [[91mERRO[0m] ============== Build failed =================2014/11/23 03:07:05 [EVEN] "/root/Example/Go/src/myproject/controllers/default.go": RENAME
+2014/11/23 03:07:05 [[94mINFO[0m] Start building...
+2012014/11/23 03:07:05 [[91mERRO[0m] ============== Build failed =================2012014/11/23 03:07:51 [EVEN] "/root/Example/Go/src/myproject/main.go": RENAME
+2014/11/23 03:07:51 [[94mINFO[0m] Start building.2014/11/23 03:07:52 [[91mERRO[0m] ============== Build failed ===================
+2014/11/23 03:09:51 [EVEN] "/root/Example/Go/src/myproject/routers/router.go": RENAME
+2014/11/23 03:09:51 [[94mINFO[0m] Start building...
+2012014/11/23 03:10:31 [[91mERRO[0m] ============== Build failed ===================
+/Go/src/myproject/main.go: no such file or directory[0m]
+2014/11/23 03:03:28 [EVEN] "/root/Example/Go/src/myproject/main.go": DELETE
+2014/11/23 03:03:31 [[91mERRO[0m] ============== Build failed ===================
+2014/11/23 03:03:31 [[94mINFO[0m] Start building...
+2014/11/23 03:03:31 [[91mERRO[0m] ============== Build failed ===================
+2014/11/23 03:07:05 [EVEN] "/root/Example/Go/src/myproject/controllers/default.go": RENAME
+2014/11/23 03:07:05 [[94mINFO[0m] Start building...
+2014/11/23 03:07:05 [[91mERRO[0m] ============== Build failed ===================
+2014/11/23 03:07:51 [EVEN] "/root/Example/Go/src/myproject/main.go": RENAME
+2014/11/23 03:07:51 [[94mINFO[0m] Start building...
+2014/11/23 03:07:52 [[91mERRO[0m] ============== Build failed ===================
+2014/11/23 03:09:51 [EVEN] "/root/Example/Go/src/myproject/routers/router.go": RENAME
+2014/11/23 03:09:51 [[94mINFO[0m] Start building...
+2014/11/23 03:10:31 [[91mERRO[0m] ============== Build failed ===================
