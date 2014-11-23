@@ -11,8 +11,13 @@
 
     <div class="container">
         {{with .Topic}}
-        <h1>{{.Title}}</h1>
-        {{str2html .Content}} {{end}}
+        <div class="panel panel-default">
+            <div class="panel-heading">{{.Title}}</div>
+            <div class="panel-body">
+                {{str2html .Content}}
+            </div>
+        </div>
+        {{end}}
         <hr/>
         <div id="uyan_frame"></div>
         <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=1973744"></script>
