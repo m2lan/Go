@@ -25,3 +25,4 @@ _testmain.go
 src/github.com
 src/code.google.com
 bin
+pkg
