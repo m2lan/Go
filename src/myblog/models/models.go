@@ -37,7 +37,7 @@ const (
 func RegisterDB() {
 	orm.RegisterModel(new(User), new(Topic))
 	orm.RegisterDriver(_MYSQL_DRIVER, orm.DR_MySQL)
-	orm.RegisterDataBase("default", _MYSQL_DRIVER, "root:feng@/blog?charset=utf8", 30)
+	orm.RegisterDataBase("default", _MYSQL_DRIVER, "root:root@/blog?charset=utf8", 30)
 }
 
 // 添加文章
