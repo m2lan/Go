@@ -17,25 +17,35 @@
                         {{if (.Content | len) gt 30}} {{substr (html2str .Content) 0 30}}...... {{else}} {{html2str .Content}} {{end}}
                     </p>
                 </div>
+                {{end}} {{if gt .paginator.PageNums 1}}
+                <ul class="pagination pagination-sm">
+                    {{if .paginator.HasPrev}}
+                    <li><a href="{{.paginator.PageLinkFirst}}">第一页</a>
+                    </li>
+                    <li><a href="{{.paginator.PageLinkPrev}}">&lt;</a>
+                    </li>
+                    {{else}}
+                    <li class="disabled"><a>第一页</a>
+                    </li>
+                    <li class="disabled"><a>&lt;</a>
+                    </li>
+                    {{end}} {{range $index, $page := .paginator.Pages}}
+                    <li{{if $.paginator.IsActive .}} class="active" {{end}}>
+                        <a href="{{$.paginator.PageLink $page}}">{{$page}}</a>
+                        </li>
+                        {{end}} {{if .paginator.HasNext}}
+                        <li><a href="{{.paginator.PageLinkNext}}">&gt;</a>
+                        </li>
+                        <li><a href="{{.paginator.PageLinkLast}}">最后一页</a>
+                        </li>
+                        {{else}}
+                        <li class="disabled"><a>&gt;</a>
+                        </li>
+                        <li class="disabled"><a>最后一页</a>
+                        </li>
+                        {{end}}
+                </ul>
                 {{end}}
-                <nav>
-                    <ul class="pagination">
-                        <li><a href="#">&laquo;</a>
-                        </li>
-                        <li><a href="#">1</a>
-                        </li>
-                        <li><a href="#">2</a>
-                        </li>
-                        <li><a href="#">3</a>
-                        </li>
-                        <li><a href="#">4</a>
-                        </li>
-                        <li><a href="#">5</a>
-                        </li>
-                        <li><a href="#">&raquo;</a>
-                        </li>
-                    </ul>
-                </nav>
             </div>
             <div class="col-xs-6 col-md-4" id="myaffix">
                 <div class="list-group">
@@ -54,24 +64,24 @@
 
     {{template "public/T.footer.html"}}
     <script>
-        $(function () {
-            $("#backtotop").hide();
-            $(function () {
-                $(window).scroll(function () {
-                    if ($(window).scrollTop() > 100) {
-                        $("#backtotop").fadeIn();
-                    } else {
-                        $("#backtotop").fadeOut();
-                    }
-                });
-                $("#backtotop").click(function () {
-                    $('body,html').animate({
-                        scrollTop: 0
-                    }, 500);
-                    return false;
-                });
+    $(function() {
+        $("#backtotop").hide();
+        $(function() {
+            $(window).scroll(function() {
+                if ($(window).scrollTop() > 100) {
+                    $("#backtotop").fadeIn();
+                } else {
+                    $("#backtotop").fadeOut();
+                }
+            });
+            $("#backtotop").click(function() {
+                $('body,html').animate({
+                    scrollTop: 0
+                }, 500);
+                return false;
             });
         });
+    });
     </script>
 </body>
 

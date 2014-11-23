@@ -1,6 +1,8 @@
 package models
 
 import (
+	"fmt"
+	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 	_ "github.com/go-sql-driver/mysql"
 	"strconv"
@@ -55,14 +57,15 @@ func AddTopic(title, content string) error {
 }
 
 // 获取所有文章
-func GetAllTopic(isDesc bool) (topic []*Topic, err error) {
+func GetAllTopic(isDesc bool, p int) (topic []*Topic, err error) {
 	o := orm.NewOrm()
 	topics := make([]*Topic, 0)
 	qs := o.QueryTable("topic")
+	pageNum, _ := beego.AppConfig.Int("pageNum")
 	if isDesc {
-		_, err = qs.OrderBy("-Created").All(&topics)
+		_, err = qs.OrderBy("-Created").Limit(pageNum, (p-1)*pageNum).All(&topics)
 	} else {
-		_, err = qs.All(&topics)
+		_, err = qs.Limit(pageNum, (p-1)*pageNum).All(&topics)
 	}
 	return topics, err
 }
@@ -85,4 +88,28 @@ func GetTopic(tid string) (*Topic, error) {
 	topic.Views++
 	_, err = o.Update(topic)
 	return topic, err
+}
+
+// 获取文章总数
+func GetTopicCount(title string) (count int64, err error) {
+	o := orm.NewOrm()
+	if len(title) > 0 {
+		count, err = o.QueryTable("topic").Filter("title__icontains", title).Count()
+	} else {
+		count, err = o.QueryTable("topic").Count()
+	}
+
+	if err != nil {
+		return 0, err
+	}
+	fmt.Println("count: ", count)
+	return count, err
+}
+
+// 文章搜索
+func SearchTopic(title string) (topic []*Topic, err error) {
+	o := orm.NewOrm()
+	topics := make([]*Topic, 0)
+	_, err = o.QueryTable("topic").Filter("title__icontains", title).All(&topics)
+	return topics, err
 }
