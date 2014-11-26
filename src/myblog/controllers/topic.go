@@ -3,6 +3,7 @@ package controllers
 import (
 	"github.com/astaxie/beego"
 	"myblog/models"
+	"strconv"
 )
 
 type TopicController struct {
@@ -17,8 +18,9 @@ func (this *TopicController) Get() {
 func (this *TopicController) Post() {
 	title := this.Input().Get("title")
 	content := this.Input().Get("content")
+	classID, _ := strconv.Atoi(this.Input().Get("classID"))
 
-	err := models.AddTopic(title, content)
+	err := models.AddTopic(title, content, int64(classID))
 	if err != nil {
 		beego.Error(err)
 	}
@@ -29,6 +31,11 @@ func (this *TopicController) Post() {
 func (this *TopicController) Add() {
 	this.Data["IsTopicAdd"] = true
 	this.TplNames = "topicAdd.html"
+	classList, err := models.FindClassify(0)
+	if err != nil {
+		beego.Error(err)
+	}
+	this.Data["ClassList"] = classList
 }
 
 func (this *TopicController) View() {

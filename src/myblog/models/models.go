@@ -30,6 +30,20 @@ type Topic struct {
 	ReplyTime       time.Time
 	ReplyCount      int64
 	ReplyLastUserId int64
+	ClassID         int64
+}
+
+// 分类
+type Classify struct {
+	Id    int64
+	Title string
+}
+
+// 统计文章分类
+type ClassifyCount struct {
+	ClassID int64
+	Num     int64
+	Title   string
 }
 
 const (
@@ -37,13 +51,13 @@ const (
 )
 
 func RegisterDB() {
-	orm.RegisterModel(new(User), new(Topic))
+	orm.RegisterModel(new(User), new(Topic), new(Classify))
 	orm.RegisterDriver(_MYSQL_DRIVER, orm.DR_MySQL)
 	orm.RegisterDataBase("default", _MYSQL_DRIVER, "root:root@/blog?charset=utf8", 30)
 }
 
 // 添加文章
-func AddTopic(title, content string) error {
+func AddTopic(title, content string, classID int64) error {
 	o := orm.NewOrm()
 	topic := &Topic{
 		Title:     title,
@@ -51,21 +65,22 @@ func AddTopic(title, content string) error {
 		Created:   time.Now(),
 		Updated:   time.Now(),
 		ReplyTime: time.Now(),
+		ClassID:   classID,
 	}
 	_, err := o.Insert(topic)
 	return err
 }
 
 // 获取所有文章
-func GetAllTopic(isDesc bool, p int) (topic []*Topic, err error) {
+func GetAllTopic(p int, cid int64) (topic []*Topic, err error) {
 	o := orm.NewOrm()
 	topics := make([]*Topic, 0)
 	qs := o.QueryTable("topic")
 	pageNum, _ := beego.AppConfig.Int("pageNum")
-	if isDesc {
-		_, err = qs.OrderBy("-Created").Limit(pageNum, (p-1)*pageNum).All(&topics)
+	if cid > 0 {
+		_, err = qs.OrderBy("-Created").Filter("class_i_d", cid).Limit(pageNum, (p-1)*pageNum).All(&topics)
 	} else {
-		_, err = qs.Limit(pageNum, (p-1)*pageNum).All(&topics)
+		_, err = qs.OrderBy("-Created").Limit(pageNum, (p-1)*pageNum).All(&topics)
 	}
 	return topics, err
 }
@@ -91,10 +106,13 @@ func GetTopic(tid string) (*Topic, error) {
 }
 
 // 获取文章总数
-func GetTopicCount(title string) (count int64, err error) {
+func GetTopicCount(title string, cid int64) (count int64, err error) {
+	fmt.Println("cid: ", cid)
 	o := orm.NewOrm()
 	if len(title) > 0 {
 		count, err = o.QueryTable("topic").Filter("title__icontains", title).Count()
+	} else if cid > 0 {
+		count, err = o.QueryTable("topic").Filter("class_i_d", cid).Count()
 	} else {
 		count, err = o.QueryTable("topic").Count()
 	}
@@ -112,4 +130,38 @@ func SearchTopic(title string) (topic []*Topic, err error) {
 	topics := make([]*Topic, 0)
 	_, err = o.QueryTable("topic").Filter("title__icontains", title).All(&topics)
 	return topics, err
+}
+
+// 添加分类
+func AddClassify(title string) error {
+	o := orm.NewOrm()
+	classify := &Classify{
+		Title: title,
+	}
+	_, err := o.Insert(classify)
+	return err
+}
+
+// 查询分类
+func FindClassify(id int64) (classify []*Classify, err error) {
+	o := orm.NewOrm()
+	classify = make([]*Classify, 0)
+	if id == 0 {
+		_, err = o.QueryTable("classify").All(&classify)
+	} else {
+		_, err = o.QueryTable("classify").Filter("id", id).All(&classify)
+	}
+	return classify, err
+}
+
+// 统计分类总数
+func GetClassifyCount() (classifyCount []*ClassifyCount, err error) {
+	qb, _ := orm.NewQueryBuilder("mysql")
+	qb.Select("t.class_i_d, count(1) num", "c.title").From("topic t").LeftJoin("classify c").On("t.class_i_d = c.id").Where("t.class_i_d in (c.id)").GroupBy("t.class_i_d")
+
+	sql := qb.String()
+	o := orm.NewOrm()
+
+	_, err = o.Raw(sql).QueryRows(&classifyCount)
+	return classifyCount, err
 }

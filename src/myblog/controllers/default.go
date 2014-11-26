@@ -19,6 +19,7 @@ func (this *MainController) Get() {
 	this.Data["IsHome"] = true
 	this.TplNames = "index-test.html"
 	q := this.GetString("q")
+	c, _ := strconv.Atoi(this.Input().Get("c"))
 	page, _ := strconv.Atoi(this.Input().Get("p"))
 	if page == 0 {
 		page = 1
@@ -31,25 +32,30 @@ func (this *MainController) Get() {
 			beego.Error(err)
 		}
 
-		count, err := models.GetTopicCount(q)
+		count, err := models.GetTopicCount(q, int64(c))
 		if err != nil {
 			beego.Error(err)
 		}
 		num = count
 		this.Data["Topics"] = topics
 	} else {
-		topics, err := models.GetAllTopic(true, page)
+		topics, err := models.GetAllTopic(page, int64(c))
 		if err != nil {
 			beego.Error(err)
 		}
 
-		count, err := models.GetTopicCount(q)
+		count, err := models.GetTopicCount(q, int64(c))
 		if err != nil {
 			beego.Error(err)
 		}
 		num = count
 		this.Data["Topics"] = topics
 	}
+	classifyCount, err := models.GetClassifyCount()
+	if err != nil {
+		beego.Error(err)
+	}
+	this.Data["classifyCount"] = classifyCount
 	pageNum, _ := beego.AppConfig.Int("pageNum")
 	p := utils.NewPaginator(this.Ctx.Request, pageNum, num)
 	this.Data["paginator"] = p

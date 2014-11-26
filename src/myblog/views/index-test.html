@@ -49,13 +49,10 @@
             </div>
             <div class="col-xs-6 col-md-4" id="myaffix">
                 <div class="list-group">
-                    <a href="#" class="list-group-item active">
-    Cras justo odio
-  </a>
-                    <a href="#" class="list-group-item"><span class="badge">14</span>Javascript</a>
-                    <a href="#" class="list-group-item"><span class="badge">14</span>Java</a>
-                    <a href="#" class="list-group-item"><span class="badge">14</span>NodeJS</a>
-                    <a href="#" class="list-group-item"><span class="badge">14</span>PHP</a>
+                    <a href="#" class="list-group-item disabled">分类</a>
+                    {{range .classifyCount}}
+                        <a href="?c={{.ClassID}}" class="list-group-item"><span class="badge">{{.Num}}</span>{{.Title}}</a>
+                    {{end}}
                 </div>
             </div>
 
