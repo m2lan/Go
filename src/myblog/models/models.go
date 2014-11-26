@@ -157,7 +157,7 @@ func FindClassify(id int64) (classify []*Classify, err error) {
 // 统计分类总数
 func GetClassifyCount() (classifyCount []*ClassifyCount, err error) {
 	qb, _ := orm.NewQueryBuilder("mysql")
-	qb.Select("t.class_i_d, count(1) num", "c.title").From("topic t").LeftJoin("classify c").On("t.class_i_d = c.id").Where("t.class_i_d in (c.id)").GroupBy("t.class_i_d")
+	qb.Select("t.class_i_d, count(1) num", "c.title").From("topic t").LeftJoin("classify c").On("t.class_i_d = c.id").Where("t.class_i_d in (c.id)").GroupBy("t.class_i_d").OrderBy("num")
 
 	sql := qb.String()
 	o := orm.NewOrm()
