@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"fmt"
 	"github.com/astaxie/beego"
 	"myblog/models"
 	"strconv"
@@ -20,12 +21,12 @@ func (this *TopicController) Post() {
 	content := this.Input().Get("content")
 	classID, _ := strconv.Atoi(this.Input().Get("classID"))
 
-	err := models.AddTopic(title, content, int64(classID))
+	id, err := models.AddTopic(title, content, int64(classID))
 	if err != nil {
 		beego.Error(err)
 	}
-
-	this.Redirect("/", 302)
+	str := fmt.Sprintf("%d", id)
+	this.Redirect("/topic/view/"+str, 302)
 }
 
 func (this *TopicController) Add() {
