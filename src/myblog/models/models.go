@@ -57,7 +57,7 @@ func RegisterDB() {
 }
 
 // 添加文章
-func AddTopic(title, content string, classID int64) error {
+func AddTopic(title, content string, classID int64) (int64, error) {
 	o := orm.NewOrm()
 	topic := &Topic{
 		Title:     title,
@@ -67,8 +67,8 @@ func AddTopic(title, content string, classID int64) error {
 		ReplyTime: time.Now(),
 		ClassID:   classID,
 	}
-	_, err := o.Insert(topic)
-	return err
+	id, err := o.Insert(topic)
+	return id, err
 }
 
 // 获取所有文章
