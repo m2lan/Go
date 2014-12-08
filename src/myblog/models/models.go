@@ -9,23 +9,16 @@ import (
 	"time"
 )
 
-// 用户
-type User struct {
-	Id       int
-	Username string
-	Password string
-}
-
 // 文章
 type Topic struct {
 	Id              int64
 	Uid             int64
 	Title           string
-	Content         string `orm:"size(5000)"`
+	Content         string
 	Attachment      string
-	Created         time.Time `orm:"index"`
-	Updated         time.Time `orm:"index"`
-	Views           int64     `orm:"index"`
+	Created         time.Time
+	Updated         time.Time
+	Views           int64
 	Author          string
 	ReplyTime       time.Time
 	ReplyCount      int64
@@ -45,15 +38,8 @@ type ClassifyCount struct {
 	Num     int64
 	Title   string
 }
-
-const (
-	_MYSQL_DRIVER = "mysql"
-)
-
-func RegisterDB() {
-	orm.RegisterModel(new(User), new(Topic), new(Classify))
-	orm.RegisterDriver(_MYSQL_DRIVER, orm.DR_MySQL)
-	orm.RegisterDataBase("default", _MYSQL_DRIVER, "root:root@/blog?charset=utf8", 30)
+func init() {
+	orm.RegisterModel(new(Topic), new(Classify))
 }
 
 // 添加文章
@@ -164,4 +150,34 @@ func GetClassifyCount() (classifyCount []*ClassifyCount, err error) {
 
 	_, err = o.Raw(sql).QueryRows(&classifyCount)
 	return classifyCount, err
+}
+
+// 获取分类最大ID
+func GetClassifyMaxID() (int, error) {
+	var maps []orm.Params
+	o := orm.NewOrm()
+	num, err := o.Raw("select max(id) maxid from classify").Values(&maps)
+	if err == nil && num > 0 {
+		return strconv.Atoi(maps[0]["maxid"].(string))
+	}
+	return 0, err
+}
+
+// 删除分类
+func DeleteClassify(id int64) error {
+	o := orm.NewOrm()
+	_, err := o.Delete(&Classify{Id: id})
+	return err
+}
+
+// 修改分类
+func UpdateClassify(id int64, title string) error {
+	o := orm.NewOrm()
+	classify := Classify{Id: id}
+	if o.Read(&classify) == nil {
+		classify.Title = title
+		_, err := o.Update(&classify)
+		return err
+	}
+	return nil
 }

@@ -1,0 +1,52 @@
+<!--nav bar helper-->
+<div class="navbar-helper">
+    <div class="row-fluid">
+        <!--panel site-name-->
+        <div class="span2">
+            <div class="panel-sitename">
+                <h2><a href="index.html"><span class="color-teal">Go</span>learns</a></h2>
+            </div>
+        </div>
+        <!--/panel name-->
+
+        <div class="span8">
+        </div>
+        <div class="span2">
+            <!--panel button ext-->
+            <div class="panel-ext">
+                <div class="btn-group user-group">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <img class="corner-all" align="middle" src="/static/admin/img/user-thumb.jpg" title="John Doe" alt="john doe" />
+                        <!--this for display on PC device-->
+                        <button class="btn btn-small btn-inverse"></button>
+                        <!--this for display on tablet and phone device-->
+                    </a>
+                    <ul class="dropdown-menu dropdown-user" role="menu" aria-labelledby="dLabel">
+                        {{with .User}}
+                        <li>
+                            <div class="media">
+                                <a class="pull-left" href="#">
+                                    <img class="img-circle" src="/static/admin/img/user.jpg" title="profile" alt="profile" />
+                                </a>
+                                <div class="media-body description">
+                                    <p><strong>{{.Username}}</strong>
+                                    </p>
+                                    <p class="muted">{{.Email}}</p>
+                                </div>
+                            </div>
+                        </li>
+                        {{end}}
+                        <li class="dropdown-footer">
+                            <div>
+                                <a class="btn btn-small pull-right" href="/admin/logout">退出</a>
+                                <a class="btn btn-small" href="#">添加账号</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--panel button ext-->
+        </div>
+    </div>
+</div>
+<!--/nav bar helper-->
