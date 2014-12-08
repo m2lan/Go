@@ -1,0 +1,164 @@
+{{template "../public/T.admin.header.html"}}
+</head>
+
+<body>
+    <!-- section header -->
+    <header class="header">
+        {{template "../public/T.admin.navbar.html" .}}
+    </header>
+
+    <!-- section content -->
+    <section class="section">
+        <div class="row-fluid">
+            {{template "../public/T.admin.sideleft.html" .}}
+
+            <!-- span content -->
+            <div class="span11">
+                <!-- content -->
+                <div class="content">
+                    <!-- content-header -->
+                    <div class="content-header">
+                        <h2><i class="icofont-home"></i> 首页 <small>welcome to golearns</small></h2>
+                    </div>
+                    <!-- /content-header -->
+
+                    <!-- content-breadcrumb -->
+                    <div class="content-breadcrumb">
+                        <!--breadcrumb-->
+                        <ul class="breadcrumb">
+                            <li><a href="index.html"><i class="icofont-home"></i> 首页</a> <span class="divider">&rsaquo;</span>
+                            </li>
+                            <li class="active">快速操作</li>
+                        </ul>
+                        <!--/breadcrumb-->
+                    </div>
+                    <!-- /content-breadcrumb -->
+
+                    <!-- content-body -->
+                    <div class="content-body">
+                        <!-- dashboar -->
+                        <!-- shortcut button -->
+                        <div class="shortcut-group">
+                            <ul class="a-btn-group">
+                                <li>
+                                    <a href="#" class="a-btn grd-white" rel="tooltip" title="add new post">
+                                        <span></span>
+                                        <span><i class="icofont-edit color-silver-dark"></i></span>
+                                        <span class="color-silver-dark"><i class="icofont-file color-silver-dark"></i></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="a-btn grd-white" rel="tooltip" title="upload something">
+                                        <span></span>
+                                        <span><i class="icofont-upload color-silver-dark"></i></span>
+                                        <span class="color-silver-dark"><i class="icofont-upload-alt color-silver-dark"></i></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="a-btn grd-white" rel="tooltip" title="message">
+                                        <span></span>
+                                        <span><i class="icofont-envelope color-silver-dark"></i></span>
+                                        <span class="color-silver-dark"><i class="icofont-envelope-alt color-teal"></i></span>
+                                        <div class="badge badge-info">9</div>
+                                        <!--don't use span here!-->
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="a-btn grd-white" rel="tooltip" title="invoice">
+                                        <span></span>
+                                        <span><i class="icofont-barcode color-silver-dark"></i></span>
+                                        <span class="color-silver-dark"><i class="icofont-shopping-cart color-red"></i></span>
+                                        <div class="label label-important">2</div>
+                                        <!--don't use span here!-->
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="a-btn grd-white" rel="tooltip" title="check statistics">
+                                        <span></span>
+                                        <span><i class="icofont-bar-chart color-silver-dark"></i></span>
+                                        <span class="color-silver-dark"><i class="typicn-lineChart"></i></span>
+                                    </a>
+                                </li>
+                                <li class="clearfix"></li>
+                            </ul>
+                        </div>
+                        <!-- /shortcut button -->
+
+                        <div class="divider-content"><span></span>
+                        </div>
+
+                        <!-- tab stat -->
+                        <div class="box-tab corner-all">
+                            <div class="box-header corner-top">
+                                <div class="header-control pull-right">
+                                    <a data-box="collapse"><i class="icofont-caret-up"></i></a>
+                                </div>
+                                <ul class="nav nav-tabs" id="tab-stat">
+                                    <li class="active"><a data-toggle="tab" href="#server-stat">服务器统计</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="box-body">
+                                <div class="tab-content">
+                                    <div class="span4">
+                                        <div class="dashboard-stat" rel="tooltip" title="usage {{.Used}}GB of {{.All}}GB">
+                                            <input data-chart="knob" type="text" data-readonly="true" data-width="120" data-height="120" data-fgcolor="#00A0B1" value="{{.Used}}" data-min="0" data-max="{{.All}}" />
+                                            <div class="stat-label grd-teal color-white">磁盘空间</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /tab stat -->
+
+                        <!-- tab resume content -->
+                        <!-- tab stat -->
+
+                        <!--/dashboar-->
+                    </div>
+                    <!--/content-body -->
+                </div>
+                <!-- /content -->
+            </div>
+            <!-- /span content -->
+
+            <!-- span side-right -->
+
+            <!-- /span side-right -->
+        </div>
+    </section>
+
+    <!-- section footer -->
+    <footer>
+        <a rel="to-top" href="#top"><i class="icofont-circle-arrow-up"></i></a>
+    </footer>
+    {{template "../public/T.admin.js.html"}}
+
+    <script src="/static/admin/js/knob/jquery.knob.js"></script>
+    <script src="/static/admin/js/wysihtml5/bootstrap-wysihtml5.js"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('#tab-stat > a[data-toggle="tab"]').on('shown', function() {
+            if (sessionStorage.mode == 4) {
+                $('body,html').animate({
+                    scrollTop: 0
+                }, 'slow');
+            }
+        });
+
+        $('[data-form=uniform]').uniform();
+
+        $('[data-form=wysihtml5]').wysihtml5()
+        toolbar = $('[data-form=wysihtml5]').prev();
+        btn = toolbar.find('.btn');
+
+        $.each(btn, function(k, v) {
+            $(v).addClass('btn-mini')
+        });
+        $("input[data-chart=knob]").knob();
+    });
+    </script>
+</body>
+
+</html>

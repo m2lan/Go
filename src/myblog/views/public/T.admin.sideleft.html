@@ -1,0 +1,43 @@
+<!-- span side-left -->
+<div class="span1">
+    <!--side bar-->
+    <aside class="side-left">
+        <ul class="sidebar">
+            <li {{if .IsAdmin}}class="active first" {{end}}>
+                <!--always define class .first for first-child of li element sidebar left-->
+                <a href="/admin" title="admin">
+                    <div class="helper-font-24">
+                        <i class="icofont-dashboard"></i>
+                    </div>
+                    <span class="sidebar-text">首页</span>
+                </a>
+            </li>
+            <li {{if .IsUser}}class="active first" {{end}}>
+                <a href="/admin/users" title="users">
+                    <div class="helper-font-24">
+                        <i class="icofont-magnet"></i>
+                    </div>
+                    <span class="sidebar-text">用户</span>
+                </a>
+            </li>
+            <li {{if .IsClassify}}class="active first" {{end}}>
+                <a href="/admin/classify" title="classify">
+                    <div class="helper-font-24">
+                        <i class="icofont-table"></i>
+                    </div>
+                    <span class="sidebar-text">分类</span>
+                </a>
+            </li>
+            <li {{if .IsTopics}}class="active first" {{end}}>
+                <a href="/admin/topics" title="topics">
+                    <div class="helper-font-24">
+                        <i class="icofont-columns"></i>
+                    </div>
+                    <span class="sidebar-text">文章</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+    <!--/side bar -->
+</div>
+<!-- span side-left -->

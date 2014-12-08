@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>后台登陆</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="M2" />
+
+    <!-- styles -->
+    <link href="/static/admin/css/bootstrap.css" rel="stylesheet" />
+    <link href="/static/admin/css/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="/static/admin/css/stilearn.css" rel="stylesheet" />
+    <link href="/static/admin/css/stilearn-responsive.css" rel="stylesheet" />
+    <link href="/static/admin/css/stilearn-helper.css" rel="stylesheet" />
+    <link href="/static/admin/css/stilearn-icon.css" rel="stylesheet" />
+    <link href="/static/admin/css/font-awesome.css" rel="stylesheet" />
+    <link href="/static/admin/css/animate.css" rel="stylesheet" />
+    <link href="/static/admin/css/uniform.default.css" rel="stylesheet" />
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+          <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <![endif]-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
+<body>
+    <!-- section header -->
+    <header class="header" data-spy="affix" data-offset-top="0">
+        <!--nav bar helper-->
+        <div class="navbar-helper">
+            <div class="row-fluid">
+                <!--panel site-name-->
+                <div class="span2">
+                    <div class="panel-sitename">
+                        <h2><a href="#"><span class="color-teal">Go</span>learns</a></h2>
+                    </div>
+                </div>
+                <!--/panel name-->
+            </div>
+        </div>
+        <!--/nav bar helper-->
+    </header>
+
+    <!-- section content -->
+
+    <section class="section">
+        <div class="container">
+            <div class="signin-form row-fluid">
+                <!--Sign In-->
+                <div class="span5 offset4">
+                    <div class="box corner-all">
+                        <div class="box-header grd-teal color-white corner-top">
+                            <span>登录:</span>
+                        </div>
+                        <div class="box-body bg-white">
+                            <form id="sign-in" method="post" action="/admin/login" />
+                            <div class="control-group">
+                                <label class="control-label">用户名</label>
+                                <div class="controls">
+                                    <input type="text" class="input-block-level" data-validate="{required: true, messages:{required:'请输入用户名'}}" name="login_username" id="login_username" autocomplete="off" />
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">密码</label>
+                                <div class="controls">
+                                    <input type="password" class="input-block-level" data-validate="{required: true, messages:{required:'请输入密码'}}" name="login_password" id="login_password" autocomplete="off" />
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="checkbox">
+                                    <input type="checkbox" data-form="uniform" name="remember_me" id="remember_me_yes" value="yes" /> 记住我
+                                </label>
+                            </div>
+                            <div class="form-actions">
+                                <input type="submit" class="btn btn-block btn-large btn-primary" value="登录" />
+                                <p class="recover-account">{{.msg}}</a></p>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!--/Sign In-->
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </section>
+
+    <!-- javascript
+        ================================================== -->
+    <script type="text/javascript" src="/static/admin/js/widgets.js"></script>
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="http://cdn.bootcss.com/Uniform.js/2.1.2/jquery.uniform.min.js"></script>
+
+    <script src="/static/admin/js/validate/jquery.metadata.js"></script>
+    <script src="/static/admin/js/validate/jquery.validate.js"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+        // uniform
+        $('[data-form=uniform]').uniform();
+
+        // validate
+        $('#sign-in').validate();
+        $('#sign-up').validate();
+        $('#form-recover').validate();
+    })
+    </script>
+</body>
+
+</html>
