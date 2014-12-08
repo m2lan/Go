@@ -1,0 +1,142 @@
+{{template "../public/T.admin.header.html"}}
+
+<link href="css/DT_bootstrap.css" rel="stylesheet" />
+<link href="css/responsive-tables.css" rel="stylesheet" />
+
+<body>
+    <!-- section header -->
+    <header class="header" data-spy="affix" data-offset-top="0">
+        {{template "../public/T.admin.navbar.html" .}}
+    </header>
+
+    <!-- section content -->
+    <section class="section">
+        <div class="row-fluid">
+            {{template "../public/T.admin.sideleft.html" .}}
+            <!-- span content -->
+            <div class="span11">
+                <!-- content -->
+                <div class="content">
+                    <!-- content-breadcrumb -->
+                    <div class="content-breadcrumb">
+
+                        <!--breadcrumb-->
+                        <ul class="breadcrumb">
+                            <li><a href="#"><i class="icofont-home"></i> 文章</a>
+                            </li>
+                            <li><a href="/admin/topic/add"><i class="icofont-plus"></i> 添加文章</a>
+                            </li>
+                        </ul>
+                        <!--/breadcrumb-->
+                    </div>
+                    <!-- /content-breadcrumb -->
+
+                    <!-- content-body -->
+                    <div class="content-body">
+                        <!-- hover -->
+                        <div class="row-fluid">
+                            <div class="span12">
+                                <div class="box corner-all">
+                                    <div class="box-header grd-white corner-top">
+                                        <span>文章</span>
+                                    </div>
+                                    <div class="box-body">
+                                        <table class="table table-hover responsive">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>标题</th>
+                                                    <th>操作</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {{range .Classify}}
+                                                <tr>
+                                                    <td>{{.Id}}</td>
+                                                    <td>{{.Title}}</td>
+                                                    <td>
+                                                        <a href="/admin/classify/update/{{.Id}}" class="btn btn-warning">修改</a>
+                                                        <a href="/admin/classify/delete/{{.Id}}" class="btn btn-danger">删除</a>
+                                                    </td>
+                                                </tr>
+                                                {{end}}
+                                                <form action="/admin/classify/add" method="post">
+                                                    <tr>
+                                                        <td><input type="text" name="id" id="id" value="{{.MaxID}}" readonly=""></td>
+                                                        <td><input type="text" name="title" id="title"></td>
+                                                        <td>
+                                                            <input type="submit" value="添加" class="btn btn-primary">
+                                                        </td>
+                                                    </tr>
+                                                </form>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- /box-body -->
+                                </div>
+                                <!-- /box -->
+                            </div>
+                            <!-- /span -->
+                        </div>
+                        <!--/hover-->
+                    </div>
+                    <!--/content-body -->
+                </div>
+                <!-- /content -->
+            </div>
+            <!-- /span content -->
+        </div>
+    </section>
+
+    <!-- section footer -->
+    <footer>
+        <a rel="to-top" href="#top"><i class="icofont-circle-arrow-up"></i></a>
+    </footer>
+
+    <!-- javascript
+        ================================================== -->
+    {{template "../public/T.admin.js.html"}} {{template "../public/T.admin.table.html"}}
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+        // try your js
+
+        // uniform
+        $('[data-form=uniform]').uniform();
+
+        // datatables
+        $('#datatables').dataTable({
+            "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+            "sPaginationType": "bootstrap",
+            "oLanguage": {
+                "sLengthMenu": "_MENU_ records per page"
+            }
+        });
+
+        // datatables table tools
+        $('#datatablestools').dataTable({
+            "sDom": "<'row-fluid'<'span6'T><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+            "oTableTools": {
+                "aButtons": [
+                    "copy",
+                    "print", {
+                        "sExtends": "collection",
+                        "sButtonText": 'Save <span class="caret" />',
+                        "aButtons": [
+                            "xls",
+                            "csv", {
+                                "sExtends": "pdf",
+                                "sPdfOrientation": "landscape",
+                                "sPdfMessage": "Your custom message would go here."
+                            }
+                        ]
+                    }
+                ],
+                "sSwfPath": "js/datatables/swf/copy_csv_xls_pdf.swf"
+            }
+        });
+    });
+    </script>
+</body>
+
+</html>
