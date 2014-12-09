@@ -1,0 +1,133 @@
+{{template "../public/T.admin.header.html"}}
+
+<link href="css/DT_bootstrap.css" rel="stylesheet" />
+<link href="css/responsive-tables.css" rel="stylesheet" />
+
+<body>
+    <!-- section header -->
+    <header class="header" data-spy="affix" data-offset-top="0">
+        {{template "../public/T.admin.navbar.html" .}}
+    </header>
+
+    <!-- section content -->
+    <section class="section">
+        <div class="row-fluid">
+            {{template "../public/T.admin.sideleft.html" .}}
+            <!-- span content -->
+            <div class="span11">
+                <!-- content -->
+                <div class="content">
+                    <!-- content-breadcrumb -->
+                    <div class="content-breadcrumb">
+
+                        <!--breadcrumb-->
+                        <ul class="breadcrumb">
+                            <li><a href="#"><i class="icofont-home"></i> 分类</a>
+                            </li>
+                        </ul>
+                        <!--/breadcrumb-->
+                    </div>
+                    <!-- /content-breadcrumb -->
+
+                    <!-- content-body -->
+                    <div class="content-body">
+                        <!-- hover -->
+                        <div class="row-fluid">
+                            <div class="span12">
+                                <!--element-->
+                                <div id="element" class="row-fluid">
+                                    <!--span-->
+                                    <div class="span12">
+                                        <!--box-->
+                                        <div class="box corner-all">
+                                            <!--box header-->
+                                            <div class="box-header grd-white color-silver-dark corner-top">
+                                                <div class="header-control">
+                                                    <a data-box="collapse"><i class="icofont-caret-up"></i></a>
+                                                    <a data-box="close">&times;</a>
+                                                </div>
+                                                <span>分类修改</span>
+                                            </div>
+                                            <!--/box header-->
+                                            <!--box body-->
+                                            <div class="box-body">
+                                                <!--element-->
+                                                <form role="form" method="post" action="/topic">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">标题</label>
+                                                        <input type="text" class="form-control" id="title" name="title" placeholder="Title">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">分类</label>
+                                                        <select class="form-control" name="classID">
+                                                            {{range .ClassList}}
+                                                            <option value="{{.Id}}">{{.Title}}</option>
+                                                            {{end}}
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="exampleInputPassword1">内容</label>
+                                                        <textarea name="content" id="editor" cols="30" rows="100"></textarea>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <!-- <div class="col-sm-offset-2 col-sm-10"> -->
+                                                        <button type="submit" class="btn btn-default" onclick="return checkInput();">提交</button>
+                                                        <!-- </div> -->
+                                                    </div>
+                                                </form>
+                                                <!--/element-->
+                                            </div>
+                                            <!--/box body-->
+                                        </div>
+                                        <!--/box-->
+                                    </div>
+                                    <!--/span-->
+                                </div>
+                                <!--/element-->
+                            </div>
+                            <!-- /span -->
+                        </div>
+                        <!--/hover-->
+                    </div>
+                    <!--/content-body -->
+                </div>
+                <!-- /content -->
+            </div>
+            <!-- /span content -->
+        </div>
+    </section>
+
+    <!-- section footer -->
+    <footer>
+        <a rel="to-top" href="#top"><i class="icofont-circle-arrow-up"></i></a>
+    </footer>
+    <script type="text/javascript" charset="utf-8" src="/static/js/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/static/js/ueditor.all.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/static/js/lang/zh-cn/zh-cn.js"></script>
+    <script>
+    var ue = UE.getEditor('editor', {
+        toolbars: [
+            ['fullscreen', 'source', 'undo', 'redo', 'bold', 'inserttitle', 'insertcode', 'fontfamily', 'fontsize', 'paragraph', 'link', 'forecolor', 'indent', 'fontborder', 'insertorderedlist', 'insertunorderedlist', 'customstyle', 'indent', 'justifyleft', 'justifyright', 'justifycenter', 'justifyjustify', 'emotion', 'horizontal', 'map', 'music', 'charts', 'inserttable', 'deletetable', 'insertparagraphbeforetable', 'insertrow', 'insertcol', 'mergeright', 'mergedown', 'deleterow', 'deletecol', 'splittorows', 'splittocols', 'splittocells', 'mergecells']
+        ],
+        autoHeightEnabled: true,
+        autoFloatEnabled: true,
+        initialFrameHeight: 400,
+        serverUrl: ""
+    });
+
+    function checkInput() {
+        if ($('#title').val().length === 0) {
+            alert('请输入文章标题')
+            return false
+        }
+
+        if ($('#content').val().length === 0) {
+            alert('请输入文章内容')
+            return false
+        }
+    }
+    </script>
+    {{template "../public/T.admin.js.html"}} {{template "../public/T.admin.table.html"}}
+</body>
+
+</html>
