@@ -38,7 +38,6 @@ type ClassifyCount struct {
 	Num     int64
 	Title   string
 }
-
 func init() {
 	orm.RegisterModel(new(Topic), new(Classify))
 }
@@ -144,7 +143,7 @@ func FindClassify(id int64) (classify []*Classify, err error) {
 // 统计分类总数
 func GetClassifyCount() (classifyCount []*ClassifyCount, err error) {
 	qb, _ := orm.NewQueryBuilder("mysql")
-	qb.Select("t.class_i_d, count(1) num", "c.title").From("topic t").LeftJoin("classify c").On("t.class_i_d = c.id").Where("t.class_i_d in (c.id)").GroupBy("t.class_i_d").OrderBy("num")
+	qb.Select("t.class_i_d, count(1) num", "c.title").From("topic t").LeftJoin("classify c").On("t.class_i_d = c.id").Where("t.class_i_d in (c.id)").GroupBy("t.class_i_d").OrderBy("num desc")
 
 	sql := qb.String()
 	o := orm.NewOrm()

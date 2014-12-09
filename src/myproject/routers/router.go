@@ -1,9 +1,8 @@
 package routers
 
 import (
-	// "fmt"
+	"myproject/controllers"
 	"github.com/astaxie/beego"
-	// "github.com/astaxie/beego/context"
 	"myproject/controllers"
 )
 
