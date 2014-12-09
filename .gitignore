@@ -22,7 +22,8 @@ _testmain.go
 *.exe
 *.test
 
-src/github.com
-src/code.google.com
+src/github.com/
+src/code.google.com/
 bin/
 pkg/
+src/myblog/myblog
